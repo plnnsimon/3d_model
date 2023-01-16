@@ -4,7 +4,7 @@ import { DRACOLoader } from 'https://unpkg.com/three@0.148.0/examples/jsm/loader
 
 // const manager = new LoadingManager();
 const dracoLoader = new DRACOLoader()
-dracoLoader.setDecoderPath('/draco/')
+dracoLoader.setDecoderPath('/static/draco/')
 dracoLoader.setDecoderConfig({ type: 'js' })
 
 export default class ModelLoader {
