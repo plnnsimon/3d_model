@@ -1,8 +1,10 @@
 {
+  "name": "3d_model",
+  "version": "1.0.0",
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "deploy": "gh-pages: -d dist"
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "gh-pages": "^4.0.0",
