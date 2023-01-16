@@ -78,7 +78,7 @@ export default class Model extends ThreejsApplication {
   }
 
   async initGLTFLoader() {
-    const loader = new ModelLoader('/threejs/sources/scene.glb', this)
+    const loader = new ModelLoader('https://plnnsimon.github.io/3d_model/threejs/sources/scene.gltf', this)
     const model = await loader.initGLTFLoader()
 
     // model.scene.traverse((el) => {
