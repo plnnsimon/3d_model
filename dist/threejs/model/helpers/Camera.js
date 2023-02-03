@@ -25,7 +25,7 @@ export default class Camera {
     this.controls = new OrbitControls(this.instance, this.canvas)
     this.controls.enableDamping = true
     this.controls.target.set(0, 0, 0)
-    this.controls.enabled = true
+    this.controls.enabled = false
     // Zoom in / zoom out
 
     this.controls.minDistance = 0

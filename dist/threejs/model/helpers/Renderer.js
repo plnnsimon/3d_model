@@ -1,5 +1,6 @@
 /* eslint-disable dot-notation */
 import * as THREE from 'three'
+import { RGBELoader } from 'https://unpkg.com/three@0.148.0/examples/jsm/loaders/RGBELoader'
 // import { Clock } from 'three'
 
 // postprocessing
@@ -42,19 +43,23 @@ export default class Renderer {
     this.instance.shadowMap.autoUpdate = false
     this.instance.shadowMap.needsUpdate = true
     this.instance.toneMapping = THREE.ACESFilmicToneMapping
-    this.instance.toneMappingExposure = 2.4
+    this.instance.toneMappingExposure = 0.8
     this.instance.autoClear = false
-    // this.instance.setClearColor(0xffffff, 1)
+    this.instance.setClearColor(0xffffff, 1)
     this.instance.physicallyCorrectLights = true
 
     this.instance.outputEncoding = THREE.sRGBEncoding
 
-    // this.scene.background = new THREE.Color('rgb(200, 200, 200)')
-    // this.scene.background.encoding = THREE.sRGBEncoding
-    // this.scene.environment
-
-    // this.scene.environment = this.bgTexture
-    // this.scene.environment.encoding = THREE.sRGBEncoding
+    const generator = new THREE.PMREMGenerator(this.instance)
+    new RGBELoader().load(
+      './threejs/sources/environment/planet-lava-env-map.hdr',
+      (hdrmap) => {
+        // ...
+        const envmap = generator.fromEquirectangular(hdrmap)
+        this.scene.environment = envmap.texture
+        this.scene.environment.encoding = THREE.sRGBEncoding
+      }
+    )
   }
 
   // setPostprocessing() {
