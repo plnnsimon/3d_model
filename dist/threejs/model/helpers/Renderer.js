@@ -52,7 +52,7 @@ export default class Renderer {
 
     const generator = new THREE.PMREMGenerator(this.instance)
     new RGBELoader().load(
-      '/dist/threejs/sources/environment/planet-lava-env-map.hdr',
+      './threejs/sources/environment/planet-lava-env-map.hdr',
       (hdrmap) => {
         // ...
         const envmap = generator.fromEquirectangular(hdrmap)
